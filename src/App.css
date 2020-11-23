@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+﻿@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
 
 html {
 	box-sizing: border-box;
@@ -8,7 +8,7 @@ html {
 	box-sizing: inherit;
 }
 
-body{
+body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
@@ -33,7 +33,7 @@ body{
 	margin: 0 auto;
 }
 
-.login-card {
+.card {
 	padding: 0;
 	max-width: 480px;
 	background: white;
@@ -63,7 +63,7 @@ body{
 	font-size: 1.2rem;
 }
 
-.title p{
+.title p {
 	text-decoration: none;
 	font-size: .9em;
 }
@@ -86,8 +86,8 @@ body{
 	font-size: 1.2rem;
 }
 
-.login-btn:hover {
-	opacity: 0.7;
+.login-btn:disabled {
+	opacity: 0.3;
 }
 
 .login-footer-title {
@@ -101,10 +101,19 @@ body{
 }
 
 .login-footer select {
+	/*-webkit-appearance: none;
+	-moz-appearance: none;*/
+	padding: 0.5em;
+	cursor: pointer;
 	color: #c5c6c6;
-	border-radius: 5px;
 	border-color: #c5c6c6;
-	padding: 10px;
+	border-radius: .5em;
+	font-size: 1.1rem;
+	outline: none;
+}
+
+select > option {
+	color: black;
 }
 
 .login-logo {
@@ -134,7 +143,7 @@ body{
 	}
 }
 
-.nav-item {
+.nav-item, .user-nav {
 	color: grey;
 	font-size: 1.2rem;
 	text-decoration: none;
@@ -174,4 +183,32 @@ body{
 	height: 0;
 	color: white;
 	line-height: 50px;
+}
+
+.response-content {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 30% 70%;
+	grid-template-rows: auto;
+}
+
+.response-poll {
+	padding: 1% 4%;
+	border-left: thin solid #c5c6c6 ;
+	text-align:left;
+}
+
+.response-img {
+	display: block;
+	width: 80%;
+	height: 10rem;
+	border-radius: 50%;
+	padding: 2% 4%;
+	line-height: 100%;
+}
+
+.title h3 {
+	text-align: left;
+	padding: 4%;
+	margin: 0;
 }
