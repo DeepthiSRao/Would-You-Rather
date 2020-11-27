@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ScoreCard from "./ScoreCard";
-import ResponsePage from "./ResponsePage";
-import PollDetails from "./Poll";
+import CreateQuestion from "./CreateQuestion";
+import LeaderBoard from "./LeaderBoard";
 import { fetchInitialData } from "../actions/shared";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./Dashboard";
@@ -31,8 +31,8 @@ class App extends React.Component {
               }
             />
             <PrivateRoute path="/dashboard" component={ScoreCard} />
-            <PrivateRoute path="/response-page" component={ResponsePage} />
-            <PrivateRoute path="/poll-details" component={PollDetails} />
+            <PrivateRoute path="/new-poll" component={CreateQuestion} />
+            <PrivateRoute path="/leader-board" component={LeaderBoard} />
           </Switch>
         </BrowserRouter>
       </div>

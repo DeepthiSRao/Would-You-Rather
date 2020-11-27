@@ -18,14 +18,14 @@ const NavBar = (props) => {
           Home
         </NavLink>
         <NavLink
-          to="/response-page"
+          to="/new-poll"
           activeClassName="active"
           className="nav-item"
         >
           New Question
         </NavLink>
         <NavLink
-          to="/poll-details"
+          to="/leader-board"
           activeClassName="active"
           className="nav-item"
         >

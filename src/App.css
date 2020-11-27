@@ -165,11 +165,11 @@ select > option {
 }
 
 .nav-links.right .nav-item {
-  margin-left: 1vw;
+  margin-left: 2vw;
 }
 
 .nav-links.left .nav-item {
-  margin-right: 1vw;
+  margin-right: 2vw;
 }
 
 .user-nav {
@@ -199,7 +199,7 @@ select > option {
   border: thin solid #c5c6c6;
   border-radius: 5px;
   min-height: 300px;
-  margin: 5% auto;
+  margin: 2% auto;
 }
 
 .dashboard-title {
@@ -228,12 +228,16 @@ select > option {
   align-items: stretch;
   width: 100%;
   height: auto;
+  padding: 1%;
 }
 
 .poll-item {
   max-width: 100%;
-  margin: 1em;
-  margin-bottom: 0;
+  margin: 1em 1em 0 1em;
+}
+
+.poll-item:last-child {
+  margin-bottom: 1em;
 }
 
 .title h4 {
@@ -245,7 +249,7 @@ select > option {
 .poll-container {
   display: grid;
   width: 100%;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: auto 70%;
   grid-template-rows: auto;
 }
 
@@ -257,11 +261,10 @@ select > option {
 
 .user-img {
   display: block;
-  width: 60%;
+  width: 50%;
   height: 10em;
   border-radius: 50%;
-  padding: 5%;
-  line-height: 100%;
+  margin: 2% auto;
 }
 
 .poll-btn {
@@ -284,4 +287,75 @@ select > option {
 .poll-text::before,
 .poll-text::after {
   content: "...";
+}
+
+/* New Poll Form */
+.form-title {
+  background-color: white;
+  padding: 0;
+}
+
+.newPollCard {
+  width: 100%;
+}
+
+.sub-title {
+  text-align: left;
+}
+
+.sub-title p {
+  font-size: 1.2em;
+}
+
+.newPollForm {
+  width: 100%;
+}
+
+.newPollForm input {
+  padding: 0.5rem 1rem;
+  font-size: 1.2em;
+  width: 100%;
+  color: rgba(219, 221, 221);
+  border-color: rgba(219, 221, 221);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newPollForm input:focus {
+  color: black;
+  outline: none;
+}
+
+.newPollForm button {
+  margin-top: 4%;
+}
+
+.dashed-text {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2em;
+}
+
+.dashed-text::before,
+.dashed-text::after {
+  content: " ";
+  flex: 1 1;
+  border-bottom: 2px solid rgba(219, 221, 221);
+  margin: auto;
+}
+
+.dashed-text:before {
+  margin-right: 10px;
+}
+
+.dashed-text:after {
+  margin-left: 10px;
+}
+
+#err-msg {
+  font-style: italic;
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
 }

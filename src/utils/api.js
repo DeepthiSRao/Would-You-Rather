@@ -13,3 +13,7 @@ export function getInitialData() {
     })
   );
 }
+
+export function savePoll(question) {
+  return _saveQuestion(question);
+}

@@ -10,7 +10,7 @@ export function fetchInitialData() {
 		return getInitialData()
 			.then(({ users, questions }) => {
 				dispatch(receiveUsers(users));
-				dispatch(receivePolls(questions))
+				dispatch(receivePolls(questions));
 				dispatch(hideLoading());
 			})
 	}

@@ -35,7 +35,7 @@ const LoginPage = ({ userList, dispatch }) => {
           ))}
         </select>
         <button
-          type="button"
+          type="submit"
           onClick={handleSubmit}
           disabled={userId ? false : true}
           className="login-btn"
