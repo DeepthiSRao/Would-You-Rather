@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import Poll from './Poll';
 
 const Dashboard = ({ pollId }) => {
+  if (pollId === null)
+    return (<div>No Poll exists</div>);
+  
   return (
     <div className="dashboard">
       <div className="dashboard-title">

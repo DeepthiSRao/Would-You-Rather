@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-const Poll = ({poll, user}) => {
+const Poll = (props) => {
+	const { poll, user, } = props;
+
 	return (
 		<div className="card poll-item">
 			<div className="title poll-tittle">
@@ -26,7 +29,7 @@ const Poll = ({poll, user}) => {
 	);
 };
 
-const mapStateToProps = ({ users, questionList }, { id }) => {
+const mapStateToProps = ({ users, questionList }, { id}) => {
 	const poll = questionList[id];
 	const user = users[poll.author];
 
@@ -36,4 +39,4 @@ const mapStateToProps = ({ users, questionList }, { id }) => {
 	}
 }
 
-export default connect(mapStateToProps)(Poll);
+export default withRouter(connect(mapStateToProps)(Poll));

@@ -199,7 +199,7 @@ select > option {
   border: thin solid #c5c6c6;
   border-radius: 5px;
   min-height: 300px;
-  margin: 2% auto;
+  margin: 2% 25%;
 }
 
 .dashboard-title {
@@ -222,11 +222,6 @@ select > option {
 }
 
 .poll-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
   height: auto;
   padding: 1%;
 }
@@ -242,15 +237,13 @@ select > option {
 
 .title h4 {
   text-align: left;
-  padding: 2% auto;
+  padding: 5% auto;
   margin: 0;
 }
 
 .poll-container {
   display: grid;
-  width: 100%;
   grid-template-columns: auto 70%;
-  grid-template-rows: auto;
 }
 
 .response-poll {
@@ -274,6 +267,7 @@ select > option {
   border-radius: 5px;
   color: var(--btn-color);
   font-size: 1em;
+  margin-top: 5%;
   width: 100%;
 }
 
@@ -358,4 +352,90 @@ select > option {
   color: red;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+.leader-card {
+  display: grid;
+  width: 70%;
+  min-width: 300px;
+  grid-template-columns: 30% auto 20%;
+  grid-template-rows: auto;
+  margin: 5% auto;
+  align-items: center;
+  border: 1px solid #c5c6c6;
+  border-radius: 5px;
+  position: relative;
+}
+
+.avatar-rank {
+  padding: none;
+}
+
+.rank {
+  width: 0;
+  height: 0;
+  border-top: 5.5em solid #c5c6c6;
+  border-right: 5em solid transparent;
+}
+
+.rank span {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.leader-image {
+  display: block;
+  border-radius: 50%;
+  width: 60%;
+  margin: -15% auto 15% auto;
+}
+
+.leader-details {
+  border-left: thin solid #c5c6c6;
+  border-right: thin solid #c5c6c6;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 0 5%;
+  text-align: left;
+}
+
+.leader-details span {
+  float: right;
+}
+
+.leader-details hr {
+  border: thin solid #c5c6c6;
+  width: 100%;
+}
+
+.leader-score {
+  border: thin solid #c5c6c6;
+  margin: 10%;
+  border-radius: 5px;
+  height: 10em;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+}
+
+.score p {
+  height: 2em;
+  width: 2em;
+  background-color: #00c2c7;
+  border-radius: 50%;
+  font-size: 1.5em;
+  color: white;
+  display: inherit;
+  justify-content: inherit;
+  align-items: center;
 }
