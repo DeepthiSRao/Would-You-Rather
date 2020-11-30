@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import { formatPoll } from '../utils/helper';
 
 const Poll = (props) => {
-	const { poll, user, } = props;
+	const { poll, user } = props;
 
 	return (
 		<div className="card poll-item">
@@ -18,23 +20,25 @@ const Poll = (props) => {
 				<div className="response-poll">
 					<h4>Would You Rather...</h4>
 					<p className="poll-text">{poll.optionOne.text}</p>
-					<button
-						type="button"
-						className="poll-btn">
-						View Poll
-					</button>
+					<Link to={`/poll-result/${poll.id}`}>
+						<button
+							type="button"
+							className="poll-btn">
+								View Poll
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-const mapStateToProps = ({ users, questionList }, { id}) => {
+const mapStateToProps = ({ users, questionList, authedUser }, { id}) => {
 	const poll = questionList[id];
 	const user = users[poll.author];
 
 	return {
-		poll,
+		poll: poll ? formatPoll(poll, user, authedUser): null,
 		user,
 	}
 }
