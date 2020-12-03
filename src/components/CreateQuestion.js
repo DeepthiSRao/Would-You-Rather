@@ -37,7 +37,7 @@ class CreateQuestion extends React.Component{
         const { optionOne, optionTwo, errorMessage } = this.state;
 
         return (
-            <div className="card newPollCard">
+            <div className="card poll-item">
               <div className="title form-title">
                 <h2>Create New Question</h2>
               </div>

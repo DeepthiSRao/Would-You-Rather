@@ -3,7 +3,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
-import PollDetails from "./PollDetails";
+import PollResult from "./PollReslt";
 import CreateQuestion from "./CreateQuestion";
 import LeaderBoard from "./LeaderBoard";
 import { fetchInitialData } from "../actions/shared";
@@ -30,7 +30,7 @@ class App extends React.Component {
                 isLoggedIn ? <Dashboard {...props} /> : <LoginPage />
               }
             />
-            <PrivateRoute path="/poll-result/:id" component={PollDetails} />
+            <PrivateRoute path="/poll-response/:id" component={PollResult} />
             <PrivateRoute path="/new-poll" component={CreateQuestion} />
             <PrivateRoute path="/leader-board" component={LeaderBoard} />
             <Route component={LoginPage} />

@@ -1,6 +1,7 @@
 import {
 	RECEIVE_USERS,
-	ADD_POLL_TO_USER
+	ADD_POLL_TO_USER,
+	ADD_ANSWER_TO_USER
 } from "../utils/constants";
 
 export const usersReducer = (state = {}, action) => {
@@ -20,6 +21,18 @@ export const usersReducer = (state = {}, action) => {
 						...state[author].questions,
 						id
 					]
+				}
+			}
+		case ADD_ANSWER_TO_USER:
+			const { authedUser, qid, answer } = action;
+			return {
+				...state,
+				[authedUser]: {
+					...state[authedUser],
+					answers : {
+						...state[authedUser].answers,
+						[qid]: answer
+					}
 				}
 			}
 		default:

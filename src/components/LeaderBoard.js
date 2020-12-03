@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Leader from './Leader';
 
 const LeaderBoard = ({ leaderId }) => {
-    console.log(leaderId);
-
     return (
 		<div>
             {

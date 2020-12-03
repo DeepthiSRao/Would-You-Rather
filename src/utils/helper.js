@@ -16,7 +16,7 @@ export function formatPoll(poll, author, authedUser) {
         hasVoted1: optionOne.votes.includes(authedUser),
         hasVoted2: optionTwo.votes.includes(authedUser),
         percentVotes1: (optionOneTotalVotes/toatlVotes *100).toFixed(0),
-        percentVotes2: (optionOneTotalVotes/toatlVotes *100).toFixed(0)
+        percentVotes2: (optionTwoTotalVotes/toatlVotes *100).toFixed(0)
     }
 }
 

@@ -5,7 +5,9 @@ export const LOGOUT_AUTHED_USER = "LOGOUT_AUTHED_USER";
 //user reducer
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const ADD_POLL_TO_USER = "ADD_POLL_TO_USER";
+export const ADD_ANSWER_TO_USER = "ADD_ANSWER_TO_USER";
 
 //poll reducer
 export const RECEIVE_POLLS = "RECEIVE_POLLS";
 export const ADD_POLL = "ADD_POLL";
+export const SAVE_ANSWER_TO_POLL = "SAVE_ANSWER_TO_POLL";

@@ -1,9 +1,10 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
-import { savePoll } from '../utils/api';
-import { savePollToUser } from './users';
+import { savePoll, saveQuestionAnswer } from '../utils/api';
+import { savePollToUser, saveAnswerToUser } from './users';
 import {
     ADD_POLL,
-    RECEIVE_POLLS
+    RECEIVE_POLLS,
+    SAVE_ANSWER_TO_POLL
 } from "../utils/constants";
 
 export function receivePolls(questionList) {
@@ -34,5 +35,29 @@ export function handleAddPoll(optionOne, optionTwo) {
             dispatch(savePollToUser(poll));
 	    	dispatch(hideLoading());
 	    })
+    }
+}
+
+export function saveAnswerToPoll(authedUser, qid, answer) {
+    return {
+        type: SAVE_ANSWER_TO_POLL,
+        authedUser,
+        qid,
+        answer
+    }
+}
+
+export function handleSaveAnswer(authedUser, qid, answer) {
+    return (dispatch) => {
+        dispatch(showLoading);
+
+        return saveQuestionAnswer(authedUser, qid, answer)
+            .then(() => {
+                dispatch(saveAnswerToUser(authedUser, qid, answer));
+                dispatch(saveAnswerToPoll(authedUser, qid, answer));
+                hideLoading();
+            }).catch(e => {
+                console.warn('Error while saving answer to a poll:', e);
+            });
     }
 }

@@ -4,17 +4,20 @@ import { formatLeader } from '../utils/helper';
 
 class Leader extends React.Component {
     render() { 
-        const { rank,
-                avatarURL,
-                answeredQuestions,
-                createdQuestions,
-                name } = this.props.leader;
+        const {
+            rank,
+            avatarURL,
+            answeredQuestions,
+            createdQuestions,
+            badgeColor,    
+            name
+        } = this.props.leader;
         const score = answeredQuestions + createdQuestions;
 
         return ( 
             <div className="leader-card">
                 <div className="avatar-rank">
-                    <div className="rank"><span>{rank}</span></div>
+                    <div className="rank" style={{color:badgeColor}}><span>{rank}</span></div>
                     <img
  	                    src={avatarURL}
  	                    alt="no-avatar"

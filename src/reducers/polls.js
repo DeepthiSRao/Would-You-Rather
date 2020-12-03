@@ -1,6 +1,7 @@
 import {
     RECEIVE_POLLS,
-    ADD_POLL
+    ADD_POLL,
+    SAVE_ANSWER_TO_POLL
 } from "../utils/constants";
 
 export const pollsReducer = (state = {}, action) => {
@@ -17,6 +18,20 @@ export const pollsReducer = (state = {}, action) => {
                     ...action.poll
                 }              
             }
+        case SAVE_ANSWER_TO_POLL: {
+            const { authedUser, qid, answer } = action;
+
+            return {
+                ...state,
+                [qid]: {
+                    ...state[qid],
+                    [answer]: {
+                        ...state[qid][answer],
+                        votes: state[qid][answer].votes.concat(authedUser)
+                    }
+                }
+            }
+        }
         default:
             return state;
     }
