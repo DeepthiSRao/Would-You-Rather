@@ -34,4 +34,4 @@ In the project directory, you can run:
 
 ## Project Screenshots
 
-![Markdown Logo](src/image/HomePage.png)
+![Markdown Logo](blob/src/image/HomePage.png)
