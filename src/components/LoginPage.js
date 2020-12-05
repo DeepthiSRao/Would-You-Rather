@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import logo from "../image/logo.jpeg";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
@@ -45,6 +46,10 @@ const LoginPage = ({ userList, dispatch }) => {
       </div>
     </div>
   );
+};
+
+LoginPage.propTypes = {
+  userList: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ users }) => ({

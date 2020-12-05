@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import Poll from './Poll';
 
@@ -30,6 +31,12 @@ const Dashboard = (props) => {
       </div>
     </div>
   );
+};
+
+Dashboard.prototype = {
+	users: PropTypes.object.isRequired,
+	questionList: PropTypes.object.isRequired,
+	authedUser: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ questionList, authedUser, users }) => {

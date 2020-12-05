@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Leader from './Leader';
 
@@ -11,6 +12,10 @@ const LeaderBoard = ({ leaderId }) => {
         </div>
     );
 }
+
+LeaderBoard.propTypes = {
+  leaderId: PropTypes.array.isRequired,
+};
 
 const mapStateToProps = ({ users }) => {
     return {

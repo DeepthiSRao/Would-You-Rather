@@ -39,29 +39,29 @@ body {
   padding: 0;
   width: 540px;
   background: white;
-  border-radius: 6px;
+  border-radius: 5px;
   border: 2px solid #c5c6c6;
   margin-top: 5%;
   flex: 1;
 }
-/*
-@media screen and (min-width: 40em) {
-	.login-card {
-		max-width: calc(50% - 1em);
-	}
-}*/
 
-/*@media screen and (min-width: 60em) {
-	.login-card {
-		max-width: calc(25% - 1em);
-	}
+@media screen and (min-width: 40em) {
+  .login-card {
+    max-width: calc(50% - 1em);
+  }
 }
-*/
+
+@media screen and (min-width: 60em) {
+  .login-card {
+    max-width: calc(25% - 1em);
+  }
+}
+
 .title {
   background-color: rgba(219, 221, 221, 0.4);
-  padding: 10px;
+  padding: 1em;
   border-bottom: 2px solid #c5c6c6;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 1.2rem;
 }
 
@@ -71,9 +71,9 @@ body {
 }
 
 .login-footer {
-  padding: 10px;
+  padding: 0 1em 1em;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 1em;
   width: 100%;
 }
 
@@ -96,10 +96,7 @@ body {
   font-size: 1.8em;
   color: var(--btn-color);
   font-weight: bold;
-}
-
-.login-footer-title {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .login-footer select {
@@ -121,14 +118,13 @@ select > option {
 .login-logo {
   width: 50%;
   height: 50%;
-  padding: 5% 10%;
+  padding: 5% 10% 0;
 }
 
 .navbar {
   position: relative;
-  max-height: 6vh;
   width: 100%;
-  border-bottom: 2px solid #00c2c7;
+  border-bottom: 1px solid #00c2c7;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -152,16 +148,16 @@ select > option {
   font-size: 1.2rem;
   text-decoration: none;
   position: center;
+  margin-right: 1.5rem;
 }
 
 .nav-links.left {
   margin-left: 10%;
-  flex: 2;
+  margin-right: auto;
 }
 
 .nav-links.right {
   margin-right: 10%;
-  margin-left: auto;
 }
 
 .user-nav {
@@ -179,10 +175,11 @@ select > option {
 .nav-item:hover,
 .active {
   text-decoration: none;
-  border-bottom: 50px solid #00c2c7;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+  border-bottom: 3rem solid #00c2c7;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
   height: 0;
+  margin-right: 1rem;
   color: white;
 }
 
@@ -190,7 +187,7 @@ select > option {
   border: thin solid #c5c6c6;
   border-radius: 5px;
   min-height: 300px;
-  margin: 2% 25%;
+  margin: 1em;
 }
 
 .dashboard-title {
@@ -203,7 +200,7 @@ select > option {
 .dashboard-title-item {
   flex: 1 1 0;
   align-items: center;
-  padding: 2% 5%;
+  padding: 1em 2em;
 }
 
 .title-left {
@@ -228,9 +225,8 @@ select > option {
   margin-bottom: 1em;
 }
 
-.title h4 {
+.title > h4 {
   text-align: left;
-  padding: 5% auto;
   margin: 0;
 }
 
@@ -240,17 +236,38 @@ select > option {
 }
 
 .response-poll {
-  padding: 1% 4%;
-  border-left: thin solid #c5c6c6;
+  grid-gap: inherit;
   text-align: left;
+  border-left: thin solid #c5c6c6;
+  padding: 1rem;
+}
+
+.response-poll > h4 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.response-poll > h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .user-img {
   display: block;
-  width: 60%;
-  height: 10em;
+  height: 80%;
+  width: 40%;
   border-radius: 50%;
-  padding: 2%;
+  margin: 1em auto;
+}
+
+.poll-img-width {
+  width: 60%;
+}
+
+.poll-result-img {
+  height: 50%;
+  width: 70%;
   margin: auto;
 }
 
@@ -261,7 +278,6 @@ select > option {
   border-radius: 5px;
   color: var(--btn-color);
   font-size: 1em;
-  margin-top: 5%;
   width: 100%;
 }
 
@@ -282,7 +298,10 @@ select > option {
   background-color: white;
   padding: 0;
 }
-
+.form-title > h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .sub-title {
   text-align: left;
 }
@@ -311,7 +330,7 @@ select > option {
 }
 
 .newPollForm button {
-  margin-top: 4%;
+  margin-top: 1em;
 }
 
 .dashed-text {
@@ -319,6 +338,8 @@ select > option {
   display: flex;
   flex-direction: row;
   font-size: 1.2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .dashed-text::before,
@@ -342,6 +363,7 @@ select > option {
   color: red;
   font-weight: bold;
   font-size: 1.2em;
+  padding: 1rem;
 }
 
 .leader-card {
@@ -350,7 +372,7 @@ select > option {
   min-width: 300px;
   grid-template-columns: 30% auto 20%;
   grid-template-rows: auto;
-  margin: 5% auto;
+  margin: 1em auto;
   align-items: center;
   border: 1px solid #c5c6c6;
   border-radius: 5px;
@@ -397,6 +419,10 @@ select > option {
   text-align: left;
 }
 
+.leader-details > h2,
+.leader-details > p {
+  margin: 5% 0;
+}
 .leader-details span {
   float: right;
 }
@@ -418,7 +444,7 @@ select > option {
   justify-content: center;
 }
 
-.score p {
+.score > p {
   height: 2em;
   width: 2em;
   background-color: #00c2c7;
@@ -431,7 +457,7 @@ select > option {
 }
 
 .question-card {
-  margin: 10% auto;
+  margin: 1rem;
   padding: 5%;
   background-color: rgba(219, 221, 221, 0.3);
   border: 1px solid #c5c6c6;
@@ -439,6 +465,10 @@ select > option {
   font-weight: bold;
   font-size: 1.1rem;
   position: relative;
+}
+
+.question-card:last-child {
+  margin-bottom: 0;
 }
 
 .voted {
@@ -452,8 +482,8 @@ select > option {
 
 .badge-container {
   position: absolute;
-  right: -50px;
-  top: -25px;
+  right: -8%;
+  top: -8%;
   text-align: center;
 }
 
@@ -462,12 +492,11 @@ select > option {
   position: relative;
   background-color: gold;
   overflow: visible;
-  width: 6rem;
-  height: 4rem;
   border-radius: 50%;
   color: white;
-  font-size: 1.2rem;
   padding: 5%;
+  width: 4rem;
+  font-size: 1rem;
   box-shadow: inset 0 0 0 1px white;
   border: 2px dashed #fff;
 }
@@ -487,6 +516,5 @@ select > option {
   color: white;
   justify-content: flex-end;
   align-items: center;
-  padding: 2%;
   border-radius: 5px;
 }

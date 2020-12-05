@@ -1,15 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { formatPoll } from '../utils/helper';
+import Error404 from './Error404';
 
 const Poll = (props) => {
 	const { poll, answered } = props;
 	const btnText = answered ? "View Result" : "View Poll";
 
 	if (poll === null)
-		return (<div>No poll exists!!!!!</div>);
+		return (<Error404 />);
 	
 	return (
 		<div className="card poll-item">
@@ -24,7 +26,7 @@ const Poll = (props) => {
 				<div className="response-poll">
 					<h4>Would You Rather...</h4>
 					<p className="poll-text">{poll.optionOne.text}</p>
-					<Link to={`/poll-response/${poll.id}`}>
+					<Link to={`/questions/${poll.id}`}>
 						<button
 							type="button"
 							className="poll-btn">
@@ -35,6 +37,12 @@ const Poll = (props) => {
 			</div>
 		</div>
 	);
+};
+
+Poll.prototype = {
+	users: PropTypes.object.isRequired,
+	questionList: PropTypes.object.isRequired,
+	authedUser: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ users, questionList, authedUser }, { id }) => {

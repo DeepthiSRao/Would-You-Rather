@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { formatPoll } from '../utils/helper';
 import { handleSaveAnswer } from '../actions/polls';
 
-const ResponsdPoll = (props) => {
+const RespondPoll = (props) => {
 	const [value, setValue] = React.useState("");
 	const { dispatch, authedUser, poll } = props;
 
@@ -28,10 +29,10 @@ const ResponsdPoll = (props) => {
 					<img
 						src={avatarURL}
 						alt="no-avatar"
-						className="user-img" />
+						className="user-img poll-img-width" />
 				</div>
 				<form className="response-poll" onSubmit={handleSubmit}>
-					<label className="checkbox-label"><h3>Would You Rather...</h3></label>
+					<h4>Would You Rather...</h4>
 					<p><input type="radio" value="optionOne" name="poll" onChange={handleChange}/>{optionOne.text}</p>
 					<p><input type="radio" value="optionTwo" name="poll" onChange={handleChange} />{optionTwo.text}</p>
 					<button
@@ -46,6 +47,12 @@ const ResponsdPoll = (props) => {
 	);
 };
 
+RespondPoll.prototype = {
+	users: PropTypes.object.isRequired,
+	questionList: PropTypes.object.isRequired,
+	authedUser: PropTypes.string.isRequired,
+};
+
 const mapStateToProps = ({ users, questionList, authedUser }, {id}) => {
 	const poll = questionList[id];
 	const user = users[poll.author];
@@ -56,4 +63,4 @@ const mapStateToProps = ({ users, questionList, authedUser }, {id}) => {
 	}
 }
 
-export default connect(mapStateToProps)(ResponsdPoll);
+export default connect(mapStateToProps)(RespondPoll);

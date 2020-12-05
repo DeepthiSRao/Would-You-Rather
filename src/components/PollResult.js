@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { formatPoll } from '../utils/helper';
-import ResponsdPoll from './ResponsdPoll';
+import ResponsdPoll from './RespondPoll';
 
 const PollResult = ({poll}) => {
 	const { hasVoted1, hasVoted2, optionOne, optionTwo, id, percentVotes1, percentVotes2, avatarURL, name } = poll;
 	const total = optionOne.votes.length + optionTwo.votes.length;
 
 	const pollCard = ({ votes, text }, percentage, hasVoted) => {
-		const progressWidth = `${percentage}%`;
+		const progressWidth = Math.max(12, percentage) + "%";
 
 		return (
 			<div className={`question-card ${hasVoted ? "voted" : ""} `}>
@@ -36,7 +37,7 @@ const PollResult = ({poll}) => {
 				<img
 					src={avatarURL}
 					alt="no-avatar"
-					className="user-img" />
+					className="user-img poll-result-img" />
 				<div className="response-poll">
 					<h2>Results:</h2>
 					{pollCard(optionOne, percentVotes1, hasVoted1)}
@@ -46,6 +47,12 @@ const PollResult = ({poll}) => {
 		</div>
     );
 }
+
+PollResult.prototype = {
+	users: PropTypes.object.isRequired,
+	questionList: PropTypes.object.isRequired,
+	authedUser: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = ({ users, questionList, authedUser }, ownProps) => {
 	const { id } = ownProps.match.params; 

@@ -21,20 +21,18 @@ export function addPoll(poll) {
     }
 }
 
-export function handleAddPoll(optionOne, optionTwo) {
-    return (dispatch, getState) => {
+export function handleAddPoll(optionOne, optionTwo, authedUser) {
+    return (dispatch) => {
         dispatch(showLoading());
-        const { authedUser } = getState();
 
         return savePoll({
-            optionOneText : optionOne,
-            optionTwoText : optionTwo,
-            author : authedUser
+            optionOneText: optionOne,
+            optionTwoText: optionTwo,
+            author: authedUser
         }).then((poll) => {
             dispatch(addPoll(poll));
             dispatch(savePollToUser(poll));
-	    	dispatch(hideLoading());
-	    })
+        }).then(() => dispatch(hideLoading()));
     }
 }
 
@@ -55,7 +53,7 @@ export function handleSaveAnswer(authedUser, qid, answer) {
             .then(() => {
                 dispatch(saveAnswerToUser(authedUser, qid, answer));
                 dispatch(saveAnswerToPoll(authedUser, qid, answer));
-                hideLoading();
+                dispatch(hideLoading());
             }).catch(e => {
                 console.warn('Error while saving answer to a poll:', e);
             });

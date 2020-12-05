@@ -1,13 +1,19 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { handleAddPoll } from '../actions/polls';
 
 class CreateQuestion extends React.Component{
-    state = {
-        optionOne: '',
-        optionTwo: '',
-        errorMessage: '',
-    }
+  static propTypes = {
+    authedUser: PropTypes.string.isRequired,
+    handleAddPoll: PropTypes.func,
+  };
+  
+  state = {
+    optionOne: '',
+    optionTwo: '',
+    errorMessage: '',
+  }
 
   handleChange = (e) => {
       const { name, value } = e.target;
@@ -18,19 +24,16 @@ class CreateQuestion extends React.Component{
   }
 
     handleSubmit = (e) => {
-        e.preventDefault();
-        const { optionOne, optionTwo } = this.state;
-        const { dispatch } = this.props;
-        if (optionOne === optionTwo) {
-            this.setState({ errorMessage: 'Please make sure both option are different!!!!'})
-        } else {
-            dispatch(handleAddPoll(optionOne, optionTwo));
-            this.setState({
-                optionOne: '',
-                optionTwo: '',
-                errorMessage: '',
-            })
-        }
+      e.preventDefault();
+      const { optionOne, optionTwo } = this.state;
+      const { dispatch, authedUser } = this.props;
+      
+      if (optionOne === optionTwo) {
+          this.setState({ errorMessage: 'Please make sure both option are different!!!!'})
+      } else {
+        dispatch(handleAddPoll(optionOne, optionTwo, authedUser))
+        .then(() => this.props.history.push("/"));
+      }
     }
 
     render() {
@@ -70,10 +73,12 @@ class CreateQuestion extends React.Component{
                   </button>
                   <span id="err-msg">{errorMessage}</span>
                 </form>
-              </div>
+                </div>
             </div>
     ); 
   }
 }
 
-export default connect()(CreateQuestion);
+const mapStateToProps = ({ authedUser }) => ({ authedUser });
+
+export default connect(mapStateToProps)(CreateQuestion);

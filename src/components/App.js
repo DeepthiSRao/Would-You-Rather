@@ -3,12 +3,14 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
-import PollResult from "./PollReslt";
+import PollResult from "./PollResult";
 import CreateQuestion from "./CreateQuestion";
 import LeaderBoard from "./LeaderBoard";
 import { fetchInitialData } from "../actions/shared";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./Dashboard";
+import LoadingBar from 'react-redux-loading';
+import Error404 from "./Error404";
 
 class App extends React.Component {
   componentDidMount() {
@@ -20,6 +22,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
+        <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }} />
         <BrowserRouter>
           <NavBar />
           <Switch>
@@ -30,10 +33,10 @@ class App extends React.Component {
                 isLoggedIn ? <Dashboard {...props} /> : <LoginPage />
               }
             />
-            <PrivateRoute path="/poll-response/:id" component={PollResult} />
-            <PrivateRoute path="/new-poll" component={CreateQuestion} />
-            <PrivateRoute path="/leader-board" component={LeaderBoard} />
-            <Route component={LoginPage} />
+            <PrivateRoute path="/questions/:id" component={PollResult} />
+            <PrivateRoute path="/add" component={CreateQuestion} />
+            <PrivateRoute path="/leaderboard" component={LeaderBoard} />
+            <Route component={Error404} />
           </Switch>
         </BrowserRouter>
       </div>
@@ -41,7 +44,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, polls }) => {
+const mapStateToProps = ({ authedUser }) => {
   return {
     isLoggedIn: authedUser !== null,
   };
