@@ -34,4 +34,4 @@ In the project directory, you can run:
 
 ## Project Screenshots
 
-![Markdown Logo](https://raw.githubusercontent.com/DeepthiSRao/MyReadApp/master/img/HomePage.png)
+![Markdown Logo](https://github.com/DeepthiSRao/Would-You-Rather/master/src/image/HomePage.png)
