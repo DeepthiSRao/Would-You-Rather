@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { formatPoll } from '../utils/helper';
 import ResponsdPoll from './RespondPoll';
+import NotFound from './NotFound';
 
-const PollResult = ({poll}) => {
+const PollResult = ({ poll }) => {
+	if (poll === null)
+		return <NotFound />
+	
 	const { hasVoted1, hasVoted2, optionOne, optionTwo, id, percentVotes1, percentVotes2, avatarURL, name } = poll;
 	const total = optionOne.votes.length + optionTwo.votes.length;
 
@@ -28,6 +32,7 @@ const PollResult = ({poll}) => {
 	if (!hasVoted1 && !hasVoted2) {
 		return <ResponsdPoll id={id}/>
 	}
+
     return (
         <div className="card poll-item">
 			<div className="title">
@@ -57,11 +62,9 @@ PollResult.prototype = {
 const mapStateToProps = ({ users, questionList, authedUser }, ownProps) => {
 	const { id } = ownProps.match.params; 
 	const poll = questionList[id];
-	const user = users[poll.author];
 
 	return {
-		poll: poll ? formatPoll(poll, user, authedUser): null,
-		user,
+		poll: poll ? formatPoll(poll,  users[poll.author], authedUser): null,
 	}
 }
 

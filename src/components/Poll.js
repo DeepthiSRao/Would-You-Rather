@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { formatPoll } from '../utils/helper';
-import Error404 from './Error404';
+import NotFound from './NotFound';
 
 const Poll = (props) => {
 	const { poll, answered } = props;
 	const btnText = answered ? "View Result" : "View Poll";
 
 	if (poll === null)
-		return (<Error404 />);
+		return (<NotFound />);
 	
 	return (
 		<div className="card poll-item">

@@ -10,7 +10,7 @@ import { fetchInitialData } from "../actions/shared";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./Dashboard";
 import LoadingBar from 'react-redux-loading';
-import Error404 from "./Error404";
+import NotFound from "./NotFound";
 
 class App extends React.Component {
   componentDidMount() {
@@ -36,7 +36,7 @@ class App extends React.Component {
             <PrivateRoute path="/questions/:id" component={PollResult} />
             <PrivateRoute path="/add" component={CreateQuestion} />
             <PrivateRoute path="/leaderboard" component={LeaderBoard} />
-            <Route component={Error404} />
+            <Route component={NotFound} />
           </Switch>
         </BrowserRouter>
       </div>
